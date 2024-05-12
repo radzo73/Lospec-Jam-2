@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://5v4kq3ddfan7"]
+
+[ext_resource type="Shader" path="res://Shaders/Shell.gdshader" id="1_tlmwh"]
+[ext_resource type="Script" path="res://Scripts/Shell.gd" id="1_xpno2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1o16"]
+shader = ExtResource("1_tlmwh")
+shader_parameter/colors = PackedColorArray(1, 0.00784314, 0.168627, 1, 0.501961, 0, 0.203922, 1, 1, 1, 0.0509804, 1, 1, 0.560784, 0, 1, 0.0392157, 1, 0.0392157, 1, 0, 0.439216, 0.384314, 1, 0.0509804, 1, 1, 1, 0.235294, 0.501961, 0.858824, 1, 0.160784, 0.160784, 1, 1, 0.176471, 0, 0.431373, 1, 1, 0.0235294, 1, 1, 0.431373, 0, 0.521569, 1, 0.14902, 0.0392157, 0.203922, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0.490196, 0.490196, 0.639216, 1)
+shader_parameter/epsilon = 0.27
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+material = SubResource("ShaderMaterial_m1o16")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+script = ExtResource("1_xpno2")
+
+[node name="Shell" type="SubViewport" parent="."]
+size = Vector2i(256, 224)
