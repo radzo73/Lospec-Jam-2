@@ -20,7 +20,6 @@ void fragment() {
 	dist[13] = distance(colors[13], c.rgb);
 	dist[14] = distance(colors[14], c.rgb);
 	
-	
 	COLOR.rgb = dist[0] < epsilon ? colors[0]:
 		(dist[1] < epsilon ? colors[1]:
 		(dist[2] < epsilon ? colors[2]:

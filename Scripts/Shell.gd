@@ -1,12 +1,14 @@
 extends Node
-var child := Node.new()
+var childPath := ^""
 
 func _ready():
 	loadScene("Menu")
 
 func loadScene(sceneName: String):
-	if not child.get_parent():
-		child.queue_free()
+	if not childPath.is_empty():
+		get_node(childPath).queue_free()
 	var scene:PackedScene = load(str("res://Scenes/", sceneName, ".tscn"))
-	child = scene.instantiate()
-	self.call_deferred(&"add_child", child)
+	if scene:
+		var child := scene.instantiate()
+		add_child(child)
+		childPath = get_path_to(child)
