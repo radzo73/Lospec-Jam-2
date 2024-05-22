@@ -19,6 +19,8 @@ stretch = true
 
 [node name="Shell" type="SubViewport" parent="."]
 handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
 size = Vector2i(256, 224)
 render_target_update_mode = 4
 script = ExtResource("1_xpno2")

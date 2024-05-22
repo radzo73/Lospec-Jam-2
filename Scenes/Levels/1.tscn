@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcddvnijli081"]
+
+[ext_resource type="Shader" path="res://Shaders/Scroll.gdshader" id="1_xvraw"]
+[ext_resource type="PackedScene" uid="uid://ckawlq604p2jy" path="res://Scenes/Enemies/Snake.tscn" id="2_cb416"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0whsb"]
+shader = ExtResource("1_xvraw")
+shader_parameter/scroll = Vector2(0, -0.25)
+
+[sub_resource type="Gradient" id="Gradient_4jwhr"]
+offsets = PackedFloat32Array(0.545455, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.431373, 0, 0.521569, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_n3pve"]
+noise_type = 0
+frequency = 0.0344
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_750ip"]
+width = 256
+height = 224
+seamless = true
+color_ramp = SubResource("Gradient_4jwhr")
+noise = SubResource("FastNoiseLite_n3pve")
+
+[node name="TextureRect" type="Sprite2D"]
+show_behind_parent = true
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0whsb")
+position = Vector2(128, 112)
+texture = SubResource("NoiseTexture2D_750ip")
+
+[node name="Snake" parent="." instance=ExtResource("2_cb416")]
+position = Vector2(0, -56)

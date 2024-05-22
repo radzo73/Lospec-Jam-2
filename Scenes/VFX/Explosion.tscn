@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://daspslsjtbnly"]
+
+[ext_resource type="Texture2D" uid="uid://muvg1l7mfkwn" path="res://Sprites/VFX/Explosion/0.png" id="1_nw6s0"]
+[ext_resource type="Texture2D" uid="uid://cwvomd4dkbqdl" path="res://Sprites/VFX/Explosion/1.png" id="2_nuahn"]
+[ext_resource type="Script" path="res://Scripts/VFX/Explosion.gd" id="3_pk86b"]
+[ext_resource type="Texture2D" uid="uid://jsfuw4qn45ou" path="res://Sprites/VFX/Light.tres" id="4_7dejn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qwmw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nw6s0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nuahn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Explosion" type="AnimatedSprite2D"]
+light_mask = 0
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_qwmw4")
+autoplay = "default"
+frame_progress = 0.0662399
+script = ExtResource("3_pk86b")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 5.0
+texture = ExtResource("4_7dejn")
+texture_scale = 2.0

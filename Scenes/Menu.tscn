@@ -1,27 +1,22 @@
-[gd_scene load_steps=13 format=3 uid="uid://7ok7ulftjpna"]
+[gd_scene load_steps=12 format=3 uid="uid://7ok7ulftjpna"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_c2d6b"]
-[ext_resource type="FontFile" uid="uid://bjtjjk5vcjm5t" path="res://Fonts/BM Japan.ttf" id="1_ljdg5"]
 [ext_resource type="FontFile" uid="uid://imme662vmn77" path="res://Fonts/BM Space.ttf" id="2_jvy7w"]
+[ext_resource type="Texture2D" uid="uid://bdoqv6myocdvs" path="res://Sprites/Title/Title.png" id="3_d8xgn"]
 
-[sub_resource type="Gradient" id="Gradient_4jwhr"]
+[sub_resource type="Gradient" id="Gradient_2y8kn"]
 offsets = PackedFloat32Array(0.227273, 0.876623)
 colors = PackedColorArray(0, 0, 0, 1, 0.431373, 0, 0.521569, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_n3pve"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eqsbq"]
 noise_type = 0
 frequency = 0.0344
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kbwhg"]
 width = 256
 height = 214
-color_ramp = SubResource("Gradient_4jwhr")
-noise = SubResource("FastNoiseLite_n3pve")
-
-[sub_resource type="LabelSettings" id="LabelSettings_pvb21"]
-line_spacing = 0.0
-font = ExtResource("1_ljdg5")
-font_size = 29
+color_ramp = SubResource("Gradient_2y8kn")
+noise = SubResource("FastNoiseLite_eqsbq")
 
 [sub_resource type="LabelSettings" id="LabelSettings_5csd0"]
 font = ExtResource("2_jvy7w")
@@ -102,16 +97,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_kbwhg")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-offset_top = 30.0
-offset_right = 256.0
-offset_bottom = 90.0
-text = "Pew Pew
-Shooter Game"
-label_settings = SubResource("LabelSettings_pvb21")
-horizontal_alignment = 1
-
 [node name="Label2" type="Label" parent="."]
 layout_mode = 2
 offset_top = 168.0
@@ -126,3 +111,7 @@ libraries = {
 "": SubResource("AnimationLibrary_8yrtn")
 }
 autoplay = "Idle"
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(128, 112)
+texture = ExtResource("3_d8xgn")
